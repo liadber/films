@@ -1,15 +1,52 @@
-<mat-grid-list class="container"  cols="5" rowHeight="fit">
-  <mat-grid-tile [colspan]="1">
-    <mat-card>
-      <mat-card-content>
-        <app-list></app-list>
-      </mat-card-content>
-    </mat-card>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened>
+    <mat-nav-list>
+      <a href="#" mat-list-item>Link 1</a>
+      <a href="#" mat-list-item>Link 2</a>
+      <a href="#" mat-list-item>Link 3</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-grid-list cols="3" rowHeight="fit" style="height: 100%">
+      <mat-grid-tile>
+        <app-form></app-form>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="2">
+        <div style="padding: 5px; height: 100%; width: 100%">
+          <app-table></app-table>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="4">
-    <app-card>Hello</app-card>
-  </mat-grid-tile>
-</mat-grid-list>
+<!--<div class="flex" style="width: 100%;">-->
+<!--    <mat-card>-->
+<!--      <mat-card-content>-->
+<!--        <app-list></app-list>-->
+<!--      </mat-card-content>-->
+<!--    </mat-card>-->
+<!--    <app-card>-->
+<!--      hello-->
+<!--&lt;!&ndash;      <app-table></app-table>&ndash;&gt;-->
+<!--    </app-card>-->
+<!--</div>-->
+
+
+<!--<mat-grid-list class="flex" style="width: 100%;" cols="5" rowHeight="fit">-->
+<!--  <mat-grid-tile [colspan]="1">-->
+<!--    <mat-card>-->
+<!--      <mat-card-content>-->
+<!--        <app-list></app-list>-->
+<!--      </mat-card-content>-->
+<!--    </mat-card>-->
+<!--  </mat-grid-tile>-->
+<!--  <mat-grid-tile [colspan]="4">-->
+<!--    <app-card>-->
+<!--      hello-->
+<!--&lt;!&ndash;      <app-table></app-table>&ndash;&gt;-->
+<!--    </app-card>-->
+<!--  </mat-grid-tile>-->
+<!--</mat-grid-list>-->
 
 <router-outlet/>
