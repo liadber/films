@@ -4,10 +4,18 @@
 $my-primary: mat.define-palette(mat.$indigo-palette, 500);
 $my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
+@mixin size-include-padding {
+  box-sizing: border-box;
+}
+
+* {
+  @include size-include-padding;
+}
 
 @mixin stretch-w {
   width: 100vw;
 }
+
 @mixin stretch-h {
   height: 100vh;
 }
@@ -17,12 +25,12 @@ $my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
   @include stretch-h;
 }
 
+.stretch {
+  @include stretch;
+}
 
 @mixin flex {
   display: flex;
-}@mixin c-flex {
-  @include flex;
-  flex-direction: column;
 }
 
 @mixin container-attributes {
@@ -35,8 +43,9 @@ $my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 }
 
 body {
-  margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 1rem;
 }
 
 html, body {

@@ -1,8 +1,15 @@
-<main>
-  <app-card>
-    <app-list></app-list>
-  </app-card>
-  <app-card>Hello</app-card>
-</main>
+<mat-grid-list class="container"  cols="5" rowHeight="fit">
+  <mat-grid-tile [colspan]="1">
+    <mat-card>
+      <mat-card-content>
+        <app-list></app-list>
+      </mat-card-content>
+    </mat-card>
+
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="4">
+    <app-card>Hello</app-card>
+  </mat-grid-tile>
+</mat-grid-list>
 
 <router-outlet/>
