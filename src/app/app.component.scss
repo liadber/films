@@ -1,0 +1,19 @@
+@import "../styles";
+
+:host{
+  @include container-attributes;
+}
+
+main {
+  @include stretch-w;
+  @include flex;
+  padding: 1rem;
+}
+
+main app-card:not(:last-child){
+  padding-right: 1rem;
+}
+
+main app-card{
+  flex-grow: 1;
+}
