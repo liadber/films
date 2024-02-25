@@ -1,52 +1,23 @@
-<mat-sidenav-container class="example-container">
-  <mat-sidenav mode="side" opened>
-    <mat-nav-list>
-      <a href="#" mat-list-item>Link 1</a>
-      <a href="#" mat-list-item>Link 2</a>
-      <a href="#" mat-list-item>Link 3</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-grid-list cols="3" rowHeight="fit" style="height: 100%">
-      <mat-grid-tile>
-        <app-form></app-form>
-      </mat-grid-tile>
-      <mat-grid-tile [colspan]="2">
-        <div style="padding: 5px; height: 100%; width: 100%">
-          <app-table></app-table>
-        </div>
-      </mat-grid-tile>
-    </mat-grid-list>
-  </mat-sidenav-content>
-</mat-sidenav-container>
-
-<!--<div class="flex" style="width: 100%;">-->
-<!--    <mat-card>-->
-<!--      <mat-card-content>-->
-<!--        <app-list></app-list>-->
-<!--      </mat-card-content>-->
-<!--    </mat-card>-->
-<!--    <app-card>-->
-<!--      hello-->
-<!--&lt;!&ndash;      <app-table></app-table>&ndash;&gt;-->
-<!--    </app-card>-->
-<!--</div>-->
-
-
-<!--<mat-grid-list class="flex" style="width: 100%;" cols="5" rowHeight="fit">-->
-<!--  <mat-grid-tile [colspan]="1">-->
-<!--    <mat-card>-->
-<!--      <mat-card-content>-->
-<!--        <app-list></app-list>-->
-<!--      </mat-card-content>-->
-<!--    </mat-card>-->
-<!--  </mat-grid-tile>-->
-<!--  <mat-grid-tile [colspan]="4">-->
-<!--    <app-card>-->
-<!--      hello-->
-<!--&lt;!&ndash;      <app-table></app-table>&ndash;&gt;-->
-<!--    </app-card>-->
-<!--  </mat-grid-tile>-->
-<!--</mat-grid-list>-->
-
-<router-outlet/>
+<mat-grid-list cols="3" rowHeight="100vh">
+  <mat-grid-tile *ngIf="selectedCharacter!=null">
+    <app-character [character]="selectedCharacter"></app-character>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="selectedCharacter!=null? 2 : 3">
+    <div class="film">
+      <mat-grid-list cols="2" gutterSize="2rem" rowHeight="500px">
+        <mat-grid-tile *ngFor="let film of films">
+          <div style="padding: 3rem">
+            <app-film [film]="film"></app-film>
+            <strong>Characters: </strong>
+            <mat-list class="characters-list">
+              <mat-list-item (click)="selectCharacter(character)"
+                             *ngFor="let character of film.charactersList">
+                {{character.name}}
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
