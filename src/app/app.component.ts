@@ -42,19 +42,13 @@ export class AppComponent implements OnInit {
       .subscribe(films => {
         this.films = films.map((film) => {
           const characterObservables: Observable<Character>[] = film.characters
-            .map((cApi: string) => {
-              console.log(cApi)
-              return this.characterService.getCharacter(cApi).pipe((character: Observable<Character>) => {
-                  console.log(character);
-                  return character;
-                }
-              );
-            });
+            .map((cApi: string) =>
+              this.characterService.getCharacter(cApi).pipe((character: Observable<Character>) => character)
+            );
           forkJoin(characterObservables)
             .subscribe((characters: Character[]) => {
               film.charactersList = characters;
             });
-          console.log(films);
           return film;
         });
       });
